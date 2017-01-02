@@ -1,0 +1,12 @@
+<!doctype html>
+<head>
+    <title>Places disponibles</title>
+</head>
+<body>
+    <ul>
+        {% for dia in reserves %}
+        <li><a href = "/dia/{{ loop.index0 }}">{{ dia.nom }}</a></li>
+        {% endfor %}
+        <li><a href= '/admin'>Admin</a></li>
+    </ul>
+</body>

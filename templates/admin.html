@@ -1,0 +1,37 @@
+<!doctype html>
+<head>
+    <title>Gestio de reserves</title>
+</head>
+<body>
+    <form id="editor" method="POST">
+        {% for dia in reserves %}
+        {% set i = loop.index0 %}
+        <h2>{{ dia.nom }}</h2>
+        <ul>
+            {% for activitat in dia.activitats %}
+            {% set j = loop.index0 %}
+            <li>
+                {{ activitat.nom }}:
+                {% for placa in activitat.places %}
+                {% if placa %}
+                <input name="{{ i }}_{{ j }}_{{ loop.index0 }}"
+                   type="checkbox" checked />
+                {% else %}
+                <input name="{{ i }}_{{ j }}_{{ loop.index0 }}"
+                   type="checkbox" />
+                {% endif %}
+                {% endfor %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </form>
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+           inputs[i].addEventListener('click', e => {
+                document.getElementById('editor').submit();
+            });
+        }
+    </script>
+</body>

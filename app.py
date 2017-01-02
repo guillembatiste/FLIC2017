@@ -6,7 +6,7 @@ import datetime as dt
 app = Flask(__name__)
 # -*- coding: utf-8 -*-
 from flask import Flask, request, render_template, abort
-from flask.ext.shelve import get_shelve, init_app
+from flask.shelve import get_shelve, init_app
 import datetime as dt
  
 app = Flask(__name__)

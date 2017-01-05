@@ -3,6 +3,15 @@
     <title>Gestio de reserves</title>
 </head>
 <body>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+         input {
+            font-size: 1em;
+            width: 1.5em;
+        }
+    </style>
     <form id="editor" method="POST">
         {% for dia in reserves %}
         {% set i = loop.index0 %}
@@ -11,7 +20,9 @@
             {% for activitat in dia.activitats %}
             {% set j = loop.index0 %}
             <li>
+            <aside> 
                 {{ activitat.nom }}:
+            </aside>
                 {% for placa in activitat.places %}
                 {% if placa %}
                 <input name="{{ i }}_{{ j }}_{{ loop.index0 }}"
@@ -19,11 +30,15 @@
                 {% else %}
                 <input name="{{ i }}_{{ j }}_{{ loop.index0 }}"
                    type="checkbox" />
-                {% endif %}
+                {% endif %}             
                 {% endfor %}
+                
+                                             
             </li>
+            <br>
             {% endfor %}
         </ul>
+        
         {% endfor %}
     </form>
     <script>

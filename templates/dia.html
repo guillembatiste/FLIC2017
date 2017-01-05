@@ -7,10 +7,10 @@
             font-family: sans-serif;
         }
         h2 {
-            border-bottom: 2px solid #CCC;
+            border-bottom: 3px solid #CCC;
         }
         input {
-            font-size: 2em;
+            font-size: 3em;
             width: 1.5em;
         }
     </style>
@@ -18,7 +18,9 @@
 <body>
    <h1>{{ dia.nom }}</h1>
    {% for activitat in dia.activitats %}
+   <br>
    <h2>{{ activitat.nom }}</h2>
    Places disponibles: <input type = 'text' value="{{activitat.disponibles}}">
+   </br>
    {% endfor %}
 </body>

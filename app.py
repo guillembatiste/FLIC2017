@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-s
 from flask import Flask, request, render_template, abort
 from flask_shelve import get_shelve, init_app
 import datetime as dt
@@ -66,8 +66,8 @@ def admin():
            {'nom': u'Llums i ombres - 11:00', 'places': [False] * 15},
            {'nom': u'El Lleó i jo - 11:15', 'places': [False] * 15},
            {'nom': u'Paraules que Alimenten - 11:45', 'places': [False] * 15},
-           {'nom': u'Llums i ombres - 12:45', 'places': [False] * 15},
            {'nom': u'Receptari literari - 12:30', 'places': [False] * 15},
+           {'nom': u'Llums i ombres - 12:45', 'places': [False] * 15},
            {'nom': u'Receptari literari - 13:00', 'places': [False] * 15},
         ]
       }, {

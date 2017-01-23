@@ -5,16 +5,18 @@
     <style>
         html {
             font-family: sans-serif;
+            background: #FFF
         }
         h2 {
-            background: #BBB;
-            padding: 5px;
+            background: #FFF;
+            padding: 3.5px;
             margin: 0;
             font-size: 1.2em;
         }
         input {
-            font-size: 2em;
-            width: 1.5em;
+            font-size: 3em;
+            width: 1.3em;
+            margin: 3px;
         }
         .logo {
             position: absolute;
@@ -34,12 +36,17 @@
             margin: 1em;
             font-size: 20px;
             width: 25em;
-            background-color: #DDD
+            background-color: #F5F38B
         }
         .complert {
             color: #F00;
-            width: 6em;
+            width: 5.5em;
             font-size: 1.5em;
+        }
+        .disponibles {
+            height: 1em;
+            margin: 3.5px;
+            
         }
     </style>
 </head>
@@ -51,9 +58,9 @@
        <li class="dia">
            <h2>{{ activitat.nom }}</h2>
            {% if activitat.disponibles == 7 %}
-           Places disponibles: <input type = 'text' value="Complert" class="complert">
+           Places disponibles: <input type = 'text' value="COMPLERT" class="complert">
            {% else %}
-           Places disponibles: <input type = 'text' value="{{activitat.disponibles}}">
+           Places disponibles: <input type = 'text' value="{{activitat.disponibles}}" class = 'disponibles'>
            {% endif %}
            </br>
        </li>

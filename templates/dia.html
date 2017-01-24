@@ -57,7 +57,7 @@
        {% for activitat in dia.activitats %}
        <li class="dia">
            <h2>{{ activitat.nom }}</h2>
-           {% if activitat.disponibles == 7 %}
+           {% if activitat.disponibles == 0 %}
            Places disponibles: <input type = 'text' value="COMPLET" class="complert">
            {% else %}
            Places disponibles: <input type = 'text' value="{{activitat.disponibles}}" class = 'disponibles'>

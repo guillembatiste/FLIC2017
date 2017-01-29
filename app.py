@@ -38,7 +38,7 @@ def day(index):
     return render_template('dia.html', dia = dia)
  
  
-@app.route('/admin', methods=["GET", "POST"])
+@app.route('/admin_fabrica', methods=["GET", "POST"])
 def admin():
     db = get_shelve('c')
     reserves = db.get('reserves', [
@@ -87,7 +87,7 @@ def admin():
         import json
         print(json.dumps(reserves))
         db['reserves'] = reserves
-    return render_template('admin.html', reserves=reserves)
+    return render_template('admin_fabrica.html', reserves=reserves)
  
  
 if __name__ == '__main__':

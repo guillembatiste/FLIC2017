@@ -17,15 +17,34 @@ init_app(app)
 def index():
     db = get_shelve('c')
     reserves = db.get('reserves', [])
-    return render_template('index.html', reserves = reserves)
+    reserves_prohibit = db.get('reserves_prohibit', [])
+    return render_template('index.html', reserves = reserves, reserves_prohibit = reserves_prohibit)
  
  
-@app.route('/dia/<index>')
+@app.route('/fabrica/dia/<index>')
 def day(index):
     db = get_shelve('c')
     reserves = db.get('reserves', [])
     try:
         dia = reserves[int(index)]
+        activitats = dia['activitats']
+        for j, activitat in enumerate(activitats):
+            ocupades = sum(1 for p in activitat['places'] if p)
+            activitats[j]['disponibles'] = (
+                len(activitat['places']) - ocupades
+            )
+    except:
+        #abort(404)
+        raise
+    return render_template('dia.html', dia = dia)
+    
+
+@app.route('/prohibit/dia/<index>')
+def day_prohibit(index):
+    db = get_shelve('c')
+    reserves_prohibit = db.get('reserves_prohibit', [])
+    try:
+        dia = reserves_prohibit[int(index)]
         activitats = dia['activitats']
         for j, activitat in enumerate(activitats):
             ocupades = sum(1 for p in activitat['places'] if p)
@@ -129,7 +148,7 @@ def admin_prohibit():
         import json
         print(json.dumps(reserves_prohibit))
         db['reserves_prohibit'] = reserves_prohibit
-    return render_template('admin_fabrica.html', reserves_prohibit=reserves_prohibit)
+    return render_template('admin_prohibit.html', reserves_prohibit=reserves_prohibit)
  
  
 if __name__ == '__main__':

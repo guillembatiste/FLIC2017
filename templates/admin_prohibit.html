@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-    <title>Gestio de reserves fàbrica de creació</title>
+    <title>Gestio de reserves prohibit no tocar</title>
 </head>
 <body>
     <style>
@@ -13,7 +13,7 @@
         }
     </style>
     <form id="editor" method="POST">
-        {% for dia in reserves %}
+        {% for dia in reserves_prohibit %}
         {% set i = loop.index0 %}
         <h2>{{ dia.nom }}</h2>
         <ul>

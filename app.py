@@ -88,6 +88,48 @@ def admin():
         print(json.dumps(reserves))
         db['reserves'] = reserves
     return render_template('admin_fabrica.html', reserves=reserves)
+    
+@app.route('/admin_prohibit', methods=["GET", "POST"])
+def admin_prohibit():
+    db = get_shelve('c')
+    reserves_prohibit = db.get('reserves_prohibit', [
+      {
+        'nom': u"Dissabte Matí",
+        'activitats': [
+           {'nom': u'Prohibit no tocar - 10:45', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 11:45', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 13:15', 'places': [False] * 30},
+        ]
+      }, {
+        'nom': u"Dissabte Tarda",
+        'activitats': [
+           {'nom': u'Prohibit no tocar - 15:45', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 17:00', 'places': [False] * 30},         
+        ]
+      }, {
+        'nom': u"Diumenge Matí",
+        'activitats': [
+           {'nom': u'Prohibit no tocar - 10:45', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 11:45', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 13:15', 'places': [False] * 30},
+        ]
+      }, {
+        'nom': u"Diumenge Tarda",
+        'activitats': [
+           {'nom': u'Prohibit no tocar - 15:45', 'places': [False] * 30},
+        ]
+      }
+    ])
+    if request.method == 'POST':
+        for i, dia in enumerate(reserves_prohibit):
+            for j, activitat in enumerate(dia['activitats']):
+                for k, value in enumerate(activitat['places']):
+                    key = "{}_{}_{}".format(i, j, k)
+                    reserves_prohibit[i]['activitats'][j]['places'][k] = key in request.form
+        import json
+        print(json.dumps(reserves_prohibit))
+        db['reserves_prohibit'] = reserves_prohibit
+    return render_template('admin_fabrica.html', reserves_prohibit=reserves_prohibit)
  
  
 if __name__ == '__main__':

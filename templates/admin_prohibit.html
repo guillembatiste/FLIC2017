@@ -23,6 +23,8 @@
             <aside> 
                 {{ activitat.nom }}:
             </aside>
+                <br>
+                Nens
                 {% for placa in activitat.places %}
                 {% if placa %}
                 <input name="{{ i }}_{{ j }}_{{ loop.index0 }}"
@@ -31,10 +33,9 @@
                 <input name="{{ i }}_{{ j }}_{{ loop.index0 }}"
                    type="checkbox" />
                 {% endif %}             
-                {% endfor %}
-                
-                                             
+                {% endfor %}                                            
             </li>
+            <br>
             <br>
             {% endfor %}
         </ul>

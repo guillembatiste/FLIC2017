@@ -115,27 +115,27 @@ def admin_prohibit():
       {
         'nom': u"Dissabte Matí",
         'activitats': [
-           {'nom': u'Prohibit no tocar - 10:45', 'places': [False] * 30},
-           {'nom': u'Prohibit no tocar - 11:45', 'places': [False] * 30},
-           {'nom': u'Prohibit no tocar - 13:15', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 10:45', 'places': [False] * 30, 'adults': [False]*60},
+           {'nom': u'Prohibit no tocar - 11:45', 'places': [False] * 30, 'adults': [False]*60},
+           {'nom': u'Prohibit no tocar - 13:15', 'places': [False] * 30, 'adults': [False]*60},
         ]
       }, {
         'nom': u"Dissabte Tarda",
         'activitats': [
-           {'nom': u'Prohibit no tocar - 15:45', 'places': [False] * 30},
-           {'nom': u'Prohibit no tocar - 17:00', 'places': [False] * 30},         
+           {'nom': u'Prohibit no tocar - 15:45', 'places': [False] * 30, 'adults': [False]*60},
+           {'nom': u'Prohibit no tocar - 17:00', 'places': [False] * 30, 'adults': [False]*60},
         ]
       }, {
         'nom': u"Diumenge Matí",
         'activitats': [
-           {'nom': u'Prohibit no tocar - 10:45', 'places': [False] * 30},
-           {'nom': u'Prohibit no tocar - 11:45', 'places': [False] * 30},
-           {'nom': u'Prohibit no tocar - 13:15', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 10:45', 'places': [False] * 30, 'adults': [False]*60},
+           {'nom': u'Prohibit no tocar - 11:45', 'places': [False] * 30, 'adults': [False]*60},
+           {'nom': u'Prohibit no tocar - 13:15', 'places': [False] * 30, 'adults': [False]*60},
         ]
       }, {
         'nom': u"Diumenge Tarda",
         'activitats': [
-           {'nom': u'Prohibit no tocar - 15:45', 'places': [False] * 30},
+           {'nom': u'Prohibit no tocar - 15:45', 'places': [False] * 30, 'adults': [False]*60},
         ]
       }
     ])

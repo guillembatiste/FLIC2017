@@ -87,7 +87,7 @@ def admin():
            {'nom': u'Paraules que Alimenten - 11:45', 'places': [False] * 15},
            {'nom': u'Receptari literari - 12:30', 'places': [False] * 15},
            {'nom': u'Llums i ombres - 12:45', 'places': [False] * 15},
-           {'nom': u'Receptari literari - 13:00', 'places': [False] * 15},
+           {'nom': u'Paraules que Alimenten - 13:00', 'places': [False] * 15},
         ]
       }, {
         'nom': u"Diumenge Tarda",
